@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/form"
 import { FormError } from '../FormError'
 import { FormSuccess } from '../FormSuccess'
+import { login } from '@/actions/login'
 
 const CreateForm: React.FC = () => {
 
@@ -36,7 +37,7 @@ const CreateForm: React.FC = () => {
   })
 
   const onSubmit = (values: z.infer<typeof LoginSchema>)=>{
-    console.log(values)
+    login(values)
   }
 
   return (
@@ -74,7 +75,6 @@ const CreateForm: React.FC = () => {
                   <FormMessage/>
                 </FormItem>
               )}/>
-              <FormSuccess message='Success!'/>
 
 
               <FormField 
@@ -93,7 +93,7 @@ const CreateForm: React.FC = () => {
                   <FormMessage/>
                 </FormItem>
               )}/>
-              <FormError message='Invalid Credentials'/>
+
               <Button className="bg-primary text-primary-foreground w-full mt-4" type="submit">Create Account</Button>
         </Card>
       </form>
